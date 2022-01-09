@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Neptune</string>
+    <string name="home">Home</string>
+    <string name="newpost">New Post</string>
+    <string name="categories">Categories</string>
+    <string name="messages">Messages</string>
+    <string name="notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="upload_and_post">Upload And Post</string>
+    <string name="add_image">Add Image</string>
+    <string name="add_video">Add Video</string>
+    <string name="new_post">New Post</string>
+    <string name="write_something_about_your_post_here">Write something about your post here.</string>
+</resources>

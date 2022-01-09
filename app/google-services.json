@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "84771479921",
+    "firebase_url": "https://neptune-5b566-default-rtdb.firebaseio.com",
+    "project_id": "neptune-5b566",
+    "storage_bucket": "neptune-5b566.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84771479921:android:142f03db0de7a6867596d0",
+        "android_client_info": {
+          "package_name": "com.kunal.neptune"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84771479921-ro36t9jfh82piv360h8obir596u1ipik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOoFdv8LQAIWSKRLRhzilqrIzAOGDEeB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84771479921-ro36t9jfh82piv360h8obir596u1ipik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
