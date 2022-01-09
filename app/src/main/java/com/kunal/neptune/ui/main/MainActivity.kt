@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.*
@@ -48,19 +49,16 @@ class MainActivity : AppCompatActivity() {
     private val isLoading = mutableStateOf(true)
     private val currentPage = mutableStateOf("")
     private val title = mutableStateOf("Home")
-    var imageWidth = 0
+    var imageWidth = 0f
     lateinit var fm: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val displayMetrics = DisplayMetrics()
-        this.windowManager
-            .defaultDisplay
-            .getMetrics(displayMetrics)
+        val displayMetrics = resources.displayMetrics
+        val dpHeight = displayMetrics.heightPixels / displayMetrics.density
+        val dpWidth = displayMetrics.widthPixels / displayMetrics.density
+        imageWidth = (dpWidth * 42)/100
         fm = this.supportFragmentManager
-        val height = displayMetrics.heightPixels
-        val width = displayMetrics.widthPixels
-        imageWidth = (width * 35)/100
 
         setContent {
             MainTheme()
@@ -429,15 +427,19 @@ class MainActivity : AppCompatActivity() {
                         PreviewImage()
                     }
 
-                    Row(modifier = Modifier.fillMaxWidth().height(60.dp)) {
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(60.dp)) {
                         IconButton(modifier = Modifier
-                            .size(50.dp).padding(14.dp,12.dp,12.dp,12.dp),onClick = {  }) {
+                            .size(50.dp)
+                            .padding(14.dp, 12.dp, 12.dp, 12.dp),onClick = {  }) {
                             Icon(painter = painterResource(id = R.drawable.ic_like), contentDescription ="" , tint = Color.Red, modifier = Modifier
                                 .size(30.dp)
                                 .clickable { })
                         }
                         IconButton(modifier = Modifier
-                            .size(50.dp).padding(12.dp),onClick = {  }) {
+                            .size(50.dp)
+                            .padding(12.dp),onClick = {  }) {
                             Icon(painter = painterResource(id = R.drawable.ic_save), contentDescription ="" , tint = colorResource(
                                 id = R.color.black
                             ), modifier = Modifier
@@ -445,7 +447,8 @@ class MainActivity : AppCompatActivity() {
                                 .clickable { })
                         }
                         IconButton(modifier = Modifier
-                            .size(50.dp).padding(12.dp),onClick = {  }) {
+                            .size(50.dp)
+                            .padding(12.dp),onClick = {  }) {
                             Icon(painter = painterResource(id = R.drawable.ic_comment), contentDescription ="" , tint = colorResource(
                                 id = R.color.black
                             ), modifier = Modifier
@@ -453,7 +456,8 @@ class MainActivity : AppCompatActivity() {
                                 .clickable { })
                         }
                         IconButton(modifier = Modifier
-                            .size(50.dp).padding(12.dp),onClick = {  }) {
+                            .size(50.dp)
+                            .padding(12.dp),onClick = {  }) {
                             Icon(painter = painterResource(id = R.drawable.ic_share), contentDescription ="" , tint = colorResource(
                                 id = R.color.black
                             ), modifier = Modifier
@@ -472,7 +476,7 @@ class MainActivity : AppCompatActivity() {
         Image(painter = rememberImagePainter("https://cookingfromheart.com/wp-content/uploads/2017/03/Paneer-Tikka-Masala-4.jpg"),
             contentDescription = "", modifier = Modifier
                 .fillMaxHeight()
-                .width(150.dp), contentScale = ContentScale.FillBounds)
+                .width(imageWidth.dp), contentScale = ContentScale.FillBounds)
     }
 
 
